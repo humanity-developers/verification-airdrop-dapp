@@ -5,22 +5,12 @@ import { injected, walletConnect } from 'wagmi/connectors';
 import { humanityTestnet as viemHumanityTestnet } from 'viem/chains'
 
 /**
- * Humanity Protocol Testnet - Official Configuration
- * 
- * ⚠️ IMPORTANT: Do NOT use viem/chains humanityTestnet - it has WRONG chainId (7080969)
- * 
- * Official Configuration:
- * - Chain ID: 1942999413 (VERIFIED from official sources)
+ * Humanity Protocol Testnet Configuration
+ *
+ * - Chain ID: 7080969
  * - Network: Humanity Protocol Testnet
  * - Token: tHP (Testnet Humanity)
- * 
- * Sources:
- * - https://thirdweb.com/humanity-testnet (Official)
- * - https://explorer.testnet.humanity.org (Block Explorer)
- * - https://humanity-testnet.explorer.alchemy.com/ (Alchemy Explorer)
- * 
- * Problem: viem/chains has incorrect chainId (7080969 instead of 1942999413)
- * Solution: Manual definition with correct official values
+ * - Explorer: https://explorer.testnet.humanity.org
  */
 export const humanityTestnet = defineChain({
   ...viemHumanityTestnet,
