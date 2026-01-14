@@ -202,17 +202,22 @@ Create a `.env` file in `apps/web/`:
 # Get yours at https://cloud.walletconnect.com/
 VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
 
-# Optional - Network Configuration
-VITE_CHAIN_ID=7080969
+# Required - Network Configuration
+# ---------------------------------------------------------
+# Testnet:
+#   Chain ID: 7080969
+#   RPC URL:  https://humanity-testnet.g.alchemy.com/public
+#
+# Mainnet:
+#   Chain ID: 6985385
+#   RPC URL:  https://humanity-mainnet.g.alchemy.com/public
+# ---------------------------------------------------------
 VITE_RPC_URL=https://humanity-testnet.g.alchemy.com/public
+VITE_CHAIN_ID=7080969
 
-# Optional - Contract Addresses (if using custom contracts)
+# Required - Contract Addresses
 VITE_AIRDROP_CONTRACT_ADDRESS=0x...
 VITE_TOKEN_CONTRACT_ADDRESS=0x...
-
-# Optional - Application Configuration
-VITE_APP_NAME="Verification Airdrop dApp"
-VITE_APP_DESCRIPTION="Claim your tokens"
 ```
 
 **How to get WalletConnect Project ID:**
@@ -225,7 +230,7 @@ VITE_APP_DESCRIPTION="Claim your tokens"
 ### Supported Networks
 
 - **Humanity Protocol Testnet** (Chain ID: 7080969)
-- Easily add more networks by configuring in `apps/web/src/config/wagmi.ts`
+- **Humanity Protocol Mainnet** (Chain ID: 6985385)
 
 ## 🚀 Deployment
 
