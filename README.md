@@ -1,4 +1,20 @@
-# Verification Airdrop dApp 🚀
+<p align="center">
+  <img src="https://cdn.humanity.org/humanity-protocol-logo-devs.png" width="576" alt="Humanity Protocol">
+</p>
+
+<h1 align="center">Humanity Protocol dApp Demo</h1>
+
+<p align="center">
+  <strong>Add proof-of-humanity verification to your DApp in minutes</strong>
+</p>
+
+<p align="center">
+  <a href="https://docs.humanity.org"><img src="https://img.shields.io/badge/docs-humanity.org-blue.svg" alt="Documentation"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
+  <a href="https://discord.gg/humanity"><img src="https://img.shields.io/badge/discord-join-7289da.svg" alt="Discord"></a>
+</p>
+
+---
 
 A decentralized application for airdrop verification and token distribution, built with modern Web3 technologies.
 
@@ -119,6 +135,7 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 ## 🛠️ Tech Stack
 
 ### Frontend Core
+
 - **Runtime**: Bun
 - **Build Tool**: Vite 5
 - **Framework**: React 18
@@ -128,16 +145,19 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 - **Build System**: Turborepo
 
 ### Web3 Stack
+
 - **Wallet Integration**: RainbowKit v2
 - **React Hooks**: Wagmi v3
 - **Ethereum Interface**: Viem v2
 - **Query Management**: TanStack Query v5
 
 ### State Management
+
 - **App State**: Zustand
 - **Blockchain State**: TanStack Query (via Wagmi)
 
 ### Code Quality
+
 - **Linting**: ESLint
 - **Formatting**: Prettier
 - **Type Checking**: TypeScript strict mode
@@ -146,6 +166,7 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 ## 📝 Development Guidelines
 
 ### General
+
 - Follow TypeScript strict mode
 - Use [Conventional Commits](https://www.conventionalcommits.org/)
 - Write tests for critical business logic
@@ -154,6 +175,7 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 - See [CLAUDE.md](./CLAUDE.md) for detailed development guidelines
 
 ### Web3 Specific
+
 - **Always handle transaction failures** - Users might reject transactions
 - **Provide clear feedback** - Show loading states and transaction status
 - **Handle network switching** - Users might be on the wrong network
@@ -163,6 +185,7 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 - **Wallet state** - Handle disconnection gracefully
 
 ### State Management
+
 - **Use Zustand** for app-level state (UI, user preferences)
 - **Use TanStack Query** (via Wagmi) for blockchain state
 - **Never use React.useState** for global or shared state
@@ -179,20 +202,26 @@ Create a `.env` file in `apps/web/`:
 # Get yours at https://cloud.walletconnect.com/
 VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
 
-# Optional - Network Configuration
-VITE_CHAIN_ID=4689
-VITE_RPC_URL=https://babel-api.mainnet.iotex.io
+# Required - Network Configuration
+# ---------------------------------------------------------
+# Testnet:
+#   Chain ID: 7080969
+#   RPC URL:  https://humanity-testnet.g.alchemy.com/public
+#
+# Mainnet:
+#   Chain ID: 6985385
+#   RPC URL:  https://humanity-mainnet.g.alchemy.com/public
+# ---------------------------------------------------------
+VITE_RPC_URL=https://humanity-testnet.g.alchemy.com/public
+VITE_CHAIN_ID=7080969
 
-# Optional - Contract Addresses (if using custom contracts)
+# Required - Contract Addresses
 VITE_AIRDROP_CONTRACT_ADDRESS=0x...
 VITE_TOKEN_CONTRACT_ADDRESS=0x...
-
-# Optional - Application Configuration
-VITE_APP_NAME="Verification Airdrop dApp"
-VITE_APP_DESCRIPTION="Claim your tokens"
 ```
 
 **How to get WalletConnect Project ID:**
+
 1. Visit [WalletConnect Cloud](https://cloud.walletconnect.com/)
 2. Sign up or log in
 3. Create a new project
@@ -200,9 +229,8 @@ VITE_APP_DESCRIPTION="Claim your tokens"
 
 ### Supported Networks
 
-- **HP Test Network** (Chain ID: 4689)
-- **IoTeX Mainnet** (Chain ID: 4689)
-- Easily add more networks by configuring in `apps/web/src/config/wagmi.ts`
+- **Humanity Protocol Testnet** (Chain ID: 7080969)
+- **Humanity Protocol Mainnet** (Chain ID: 6985385)
 
 ## 🚀 Deployment
 
@@ -226,6 +254,7 @@ bun run build
 ```
 
 In Netlify dashboard:
+
 1. Set build command: `bun run build`
 2. Set publish directory: `apps/web/dist`
 3. Add environment variables
@@ -246,6 +275,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t verification-airdrop-dapp .
 docker run -p 80:80 verification-airdrop-dapp
@@ -254,6 +284,7 @@ docker run -p 80:80 verification-airdrop-dapp
 ### Static Hosting
 
 After building (`bun run build`), you can deploy the `apps/web/dist` folder to any static hosting service:
+
 - GitHub Pages
 - Cloudflare Pages
 - AWS S3 + CloudFront
@@ -265,14 +296,15 @@ After building (`bun run build`), you can deploy the `apps/web/dist` folder to a
 
 **Q: What wallets are supported?**  
 A: We support all wallets compatible with WalletConnect v2, including:
+
 - MetaMask
 - Trust Wallet
 - Coinbase Wallet
 - Rainbow Wallet
 - And many more through WalletConnect
 
-**Q: Which blockchain networks are supported?**  
-A: Currently supporting IoTeX Mainnet (Chain ID: 4689). More networks can be easily added through configuration.
+**Q: Which blockchain networks are supported?**
+A: Currently supporting Humanity Protocol Testnet (Chain ID: 7080969). More networks can be easily added through configuration.
 
 **Q: How do I add a custom token to the airdrop?**  
 A: You need to deploy your own airdrop contract and update the contract address in the environment variables. See the contracts configuration in `apps/web/src/config/wagmi.ts`.
@@ -297,24 +329,28 @@ A: Yes, create new Zustand stores in `apps/web/src/stores/` following the patter
 ### Troubleshooting
 
 **Issue: Wallet won't connect**
+
 - Ensure you're on the correct network
 - Check if your wallet extension is updated to the latest version
 - Try refreshing the page
 - Clear browser cache and try again
 
 **Issue: Transaction failed**
+
 - Verify you have enough native tokens for gas fees
 - Check if you're eligible for the airdrop
 - Ensure you're on the correct network
 - Try increasing the gas limit in your wallet
 
 **Issue: Build fails**
+
 - Run `bun install` to ensure all dependencies are installed
 - Clear build cache with `bun run clean`
 - Check Node/Bun version compatibility
 - Ensure all TypeScript errors are resolved with `bun run type-check`
 
 **Issue: Environment variables not working**
+
 - Ensure your `.env` file is in the `apps/web/` directory
 - Restart the dev server after changing environment variables
 - Remember to prefix variables with `VITE_` for them to be available in the client
@@ -322,6 +358,7 @@ A: Yes, create new Zustand stores in `apps/web/src/stores/` following the patter
 ## 🔗 Useful Links
 
 ### Framework & Tools
+
 - [Bun Documentation](https://bun.sh/docs)
 - [Vite Documentation](https://vitejs.dev/)
 - [React Documentation](https://react.dev/)
@@ -330,6 +367,7 @@ A: Yes, create new Zustand stores in `apps/web/src/stores/` following the patter
 - [Tailwind CSS v4](https://tailwindcss.com/)
 
 ### Web3
+
 - [Wagmi Documentation](https://wagmi.sh/)
 - [Viem Documentation](https://viem.sh/)
 - [RainbowKit Documentation](https://www.rainbowkit.com/)
@@ -360,7 +398,7 @@ We welcome contributions from the community! Please follow these guidelines:
    - `refactor:` Code refactoring
    - `test:` Adding or updating tests
    - `chore:` Build process or tooling changes
-   
+
    Example: `git commit -m 'feat: add batch claiming feature'`
 
 7. **Push to your fork**: `git push origin feature/amazing-feature`
@@ -386,6 +424,7 @@ We welcome contributions from the community! Please follow these guidelines:
 ### Reporting Issues
 
 When reporting issues, please include:
+
 - Clear description of the problem
 - Steps to reproduce
 - Expected vs actual behavior
