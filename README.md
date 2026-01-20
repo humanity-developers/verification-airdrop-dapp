@@ -18,6 +18,10 @@
 
 A decentralized application for airdrop verification and token distribution, built with modern Web3 technologies.
 
+## 🌐 Live Demo
+
+**[Try the Live Demo →](https://demo.humanity.org/verification-airdrop-dapp)**
+
 ## ✨ Features
 
 - 🔐 **Wallet Integration** - Connect with MetaMask, WalletConnect, and more via RainbowKit
@@ -26,111 +30,6 @@ A decentralized application for airdrop verification and token distribution, bui
 - 📊 **Transaction Tracking** - Monitor transaction status in real-time
 - 🎨 **Modern UI** - Beautiful interface built with Tailwind CSS v4
 - ⚡ **High Performance** - Built with Vite and optimized for speed
-
-## 🎬 Demo
-
-### Screenshots
-
-> **Note**: Add your project screenshots here to showcase the application
-
-- Main interface with wallet connection
-- Airdrop eligibility check flow
-- Token claiming process
-- Transaction status tracking
-
-### Live Demo
-
-🌐 **[Try the Live Demo](https://demo.humanity.org/verification-airdrop-dapp)**
-
-## 📁 Project Structure
-
-```
-verification-airdrop-dapp/
-├── packages/                  # Shared packages
-│   ├── types/                # Shared TypeScript types
-│   └── core/                 # Core business logic
-├── apps/                     # Applications
-│   └── web/                  # Web application (Vite + React + Web3)
-│       ├── src/
-│       │   ├── components/  # React components
-│       │   ├── contracts/   # Smart contract interfaces
-│       │   ├── abis/        # Contract ABIs
-│       │   ├── services/    # Business logic services
-│       │   ├── stores/      # Zustand state management
-│       │   └── config/      # Web3 configuration
-├── docs/                     # Documentation
-└── package.json              # Root package.json with workspaces
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- [Bun](https://bun.sh/) >= 1.0.0
-- A Web3 wallet (MetaMask, WalletConnect, etc.)
-- Access to a supported blockchain network
-
-### Installation
-
-```bash
-# Install dependencies
-bun install
-```
-
-### Development
-
-```bash
-# Start the web app in development mode (http://localhost:3000)
-bun run dev
-```
-
-The app will automatically open in your browser. Connect your wallet to start interacting with the dApp.
-
-### Build
-
-```bash
-# Build all packages and apps for production
-bun run build
-```
-
-### Testing
-
-```bash
-# Run tests
-bun run test
-```
-
-### Code Quality
-
-```bash
-# Lint code
-bun run lint
-
-# Format code
-bun run format
-
-# Type check
-bun run type-check
-
-# Clean build artifacts
-bun run clean
-```
-
-## 📦 Packages
-
-### @hp/types
-
-Shared TypeScript type definitions used across the monorepo, including blockchain-related types and interfaces.
-
-### @hp/core
-
-Core business logic, utilities, and shared functionality for airdrop operations.
-
-## 🏗️ Apps
-
-### web
-
-Main web application built with Vite, React, and Web3 technologies. Features wallet integration, smart contract interactions, and a modern UI for airdrop management.
 
 ## 🛠️ Tech Stack
 
@@ -163,6 +62,133 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 - **Type Checking**: TypeScript strict mode
 - **Monorepo**: Bun Workspaces + Turborepo
 
+## 🚀 Quick Start
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) >= 1.0.0
+- A Web3 wallet (MetaMask, WalletConnect, etc.)
+- Access to Humanity Protocol Testnet or Mainnet
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/humanity-developers/verification-airdrop-dapp
+cd verification-airdrop-dapp
+```
+
+2. **Install dependencies**
+
+```bash
+bun install
+```
+
+### Configuration
+
+Create a `.env` file in `apps/web/`:
+
+```env
+# Required - WalletConnect Project ID
+# Get yours at https://cloud.walletconnect.com/
+VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
+
+# Required - Network Configuration
+# ---------------------------------------------------------
+# Testnet:
+#   Chain ID: 7080969
+#   RPC URL:  https://humanity-testnet.g.alchemy.com/public
+#
+# Mainnet:
+#   Chain ID: 6985385
+#   RPC URL:  https://humanity-mainnet.g.alchemy.com/public
+# ---------------------------------------------------------
+VITE_CHAIN_ID=7080969
+VITE_RPC_URL=https://humanity-testnet.g.alchemy.com/public
+
+# Required - Contract Addresses
+VITE_AIRDROP_CONTRACT_ADDRESS=0x...
+VITE_TOKEN_CONTRACT_ADDRESS=0x...
+```
+
+**How to get WalletConnect Project ID:**
+
+1. Visit [WalletConnect Cloud](https://cloud.walletconnect.com/)
+2. Sign up or log in
+3. Create a new project
+4. Copy the Project ID
+
+**Supported Networks:**
+
+- **Humanity Protocol Testnet** (Chain ID: 7080969)
+- **Humanity Protocol Mainnet** (Chain ID: 6985385)
+
+### Running the App
+
+```bash
+# Start the web app in development mode (http://localhost:3000)
+bun run dev
+```
+
+The app will automatically open in your browser. Connect your wallet to start interacting with the dApp.
+
+### Build for Production
+
+```bash
+# Build all packages and apps for production
+bun run build
+```
+
+### Other Commands
+
+```bash
+# Run tests
+bun run test
+
+# Lint code
+bun run lint
+
+# Format code
+bun run format
+
+# Type check
+bun run type-check
+
+# Clean build artifacts
+bun run clean
+```
+
+## 📁 Project Structure
+
+```
+verification-airdrop-dapp/
+├── packages/                  # Shared packages
+│   ├── types/                # Shared TypeScript types
+│   └── core/                 # Core business logic
+├── apps/                     # Applications
+│   └── web/                  # Web application (Vite + React + Web3)
+│       ├── src/
+│       │   ├── components/  # React components
+│       │   ├── contracts/   # Smart contract interfaces
+│       │   ├── abis/        # Contract ABIs
+│       │   ├── services/    # Business logic services
+│       │   ├── stores/      # Zustand state management
+│       │   └── config/      # Web3 configuration
+├── docs/                     # Documentation
+└── package.json              # Root package.json with workspaces
+```
+
+## 📦 Packages
+
+### @hp/types
+
+Shared TypeScript type definitions used across the monorepo, including blockchain-related types and interfaces.
+
+### @hp/core
+
+Core business logic, utilities, and shared functionality for airdrop operations.
+
 ## 📝 Development Guidelines
 
 ### General
@@ -190,47 +216,6 @@ Main web application built with Vite, React, and Web3 technologies. Features wal
 - **Use TanStack Query** (via Wagmi) for blockchain state
 - **Never use React.useState** for global or shared state
 - **Never use React.useContext** for state management
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file in `apps/web/`:
-
-```env
-# Required - WalletConnect Project ID
-# Get yours at https://cloud.walletconnect.com/
-VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
-
-# Required - Network Configuration
-# ---------------------------------------------------------
-# Testnet:
-#   Chain ID: 7080969
-#   RPC URL:  https://humanity-testnet.g.alchemy.com/public
-#
-# Mainnet:
-#   Chain ID: 6985385
-#   RPC URL:  https://humanity-mainnet.g.alchemy.com/public
-# ---------------------------------------------------------
-VITE_RPC_URL=https://humanity-testnet.g.alchemy.com/public
-VITE_CHAIN_ID=7080969
-
-# Required - Contract Addresses
-VITE_AIRDROP_CONTRACT_ADDRESS=0x...
-VITE_TOKEN_CONTRACT_ADDRESS=0x...
-```
-
-**How to get WalletConnect Project ID:**
-
-1. Visit [WalletConnect Cloud](https://cloud.walletconnect.com/)
-2. Sign up or log in
-3. Create a new project
-4. Copy the Project ID
-
-### Supported Networks
-
-- **Humanity Protocol Testnet** (Chain ID: 7080969)
-- **Humanity Protocol Mainnet** (Chain ID: 6985385)
 
 ## 🚀 Deployment
 
@@ -304,7 +289,7 @@ A: We support all wallets compatible with WalletConnect v2, including:
 - And many more through WalletConnect
 
 **Q: Which blockchain networks are supported?**
-A: Currently supporting Humanity Protocol Testnet (Chain ID: 7080969). More networks can be easily added through configuration.
+A: Both Humanity Protocol Testnet (Chain ID: 7080969) and Mainnet (Chain ID: 6985385) are supported. Switch between networks by updating the `VITE_CHAIN_ID` and `VITE_RPC_URL` in your `.env` file.
 
 **Q: How do I add a custom token to the airdrop?**  
 A: You need to deploy your own airdrop contract and update the contract address in the environment variables. See the contracts configuration in `apps/web/src/config/wagmi.ts`.
